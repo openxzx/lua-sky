@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Catch exception</title>
+    </head>
+
+    <script type="text/javascript">
+        function catch_error() {
+            try {
+                val = document.getElementById("input_id").value;
+                if (val == "" || val == null)
+                    window.alert("input value cat not be null");
+                else if (isNaN(val))
+                    window.alert("input value must be number");
+                else if (val < 5)
+                    window.alert("input value is too small");
+                else if (val > 10)
+                    window.alert("input is too big");
+                else
+                    throw "input value is right";
+            } catch(err) {
+                document.getElementById("demo").innerHTML="prompt: " + err;
+            }
+        }
+    </script>
+
+    <body>
+        <p>Please input number: 5 ~ 10</p>
+        <input type="number" id="input_id"></input>
+        <button type="button" id="button_id" onclick="catch_error()">Enter</button>
+        <p id="demo"></p>
+    </body>
+</html>
